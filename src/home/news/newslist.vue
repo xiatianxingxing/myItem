@@ -1,9 +1,6 @@
 <template>
     <div class="">
-        <div>
-            <a href="javascript:history.go(-1);" class="back">返回</a>
-            <mt-header fixed title="123"></mt-header>
-        </div>
+
         <ul class="mui-table-view">
             <li v-for="item in list" class="mui-table-view-cell mui-media">
                 <router-link v-bind="{to:'newsinfo/'+item.id}">
@@ -26,6 +23,7 @@
 <script>
     //便于后期维护
     import allApi from "../../allApi.js";
+
     export default{
         data: function () {
             return{
@@ -53,14 +51,7 @@
 </script>
 
 <style scoped>
-    .back{
-        font-size:16px ;
-        color: #fff;
-        position: absolute;
-        top: 10px;left: 10px;
-        z-index: 10;
 
-    }
 
     .mui-media-body{
         font-size: 14px;

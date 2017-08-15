@@ -9,7 +9,7 @@ a, address, b, big, blockquote, body, center, cite, code, dd, del, div, dl, dt, 
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	/*È¥³ýÒÆ¶¯¶ËÌØÓÐµÄµã»÷¸ßÁÁÐ§¹û*/
+	/*È¥ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½*/
 	-webkit-tap-highlight-color: transparent;
 }
 
@@ -116,11 +116,11 @@ em, i, u {
 	overflow: hidden
 }
 input{
-	/*1.Çå³ýÎÄ±¾¿ò»ñÈ¡½¹µãÊ±Ä¬ÈÏµÄ±ß¿òÒõÓ°*/
+	/*1.ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ê±Ä¬ï¿½ÏµÄ±ß¿ï¿½ï¿½ï¿½Ó°*/
 	outline: none;
-	/*2.È¥³ý±ß¿ò*/
+	/*2.È¥ï¿½ï¿½ï¿½ß¿ï¿½*/
 	border: none;
-	/*3.Ìí¼Ó±ß¿ò*/
+	/*3.ï¿½ï¿½Ó±ß¿ï¿½*/
 	border: 1px solid #ccc;
 }
 body {
@@ -136,4 +136,11 @@ a {
 
 a:hover {
 	color: #C81623
+}
+
+img.gomeImgLoad{
+	width: 100%;
+}
+#dong .mint-swipe{
+	height: 290px;
 }

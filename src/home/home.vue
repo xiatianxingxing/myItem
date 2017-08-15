@@ -1,10 +1,12 @@
 <template>
     <div class="dong">
-        <mt-swipe :auto="4000">
-            <mt-swipe-item v-for="item in list">
-                <img :src="item.img" />
-            </mt-swipe-item>
-        </mt-swipe>
+        <!--<mt-swipe :auto="4000">-->
+            <!--<mt-swipe-item v-for="item in list">-->
+                <!--<img :src="item.img" />-->
+            <!--</mt-swipe-item>-->
+        <!--</mt-swipe>-->
+        <lunbo :img="list"></lunbo>
+
         <ul class="mui-table-view mui-grid-view mui-grid-9">
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <router-link to="/news/newslist">
@@ -50,16 +52,21 @@
 <script>
     //便于后期维护
     import allApi from "../allApi.js";
-
+    //轮播图
+    import lunbo from "./lunbo.vue"
     import { Toast } from 'mint-ui';
+
     export default{  // es6语法
+        components:{
+          lunbo
+        },
         data: function ()
         {
             return {
                 list:[]
                 }
 
-    },
+        },
         methods:{
             gitLunbo: function () {
                 //便于后期维护
@@ -87,19 +94,13 @@
 </script>
 
 <style scoped>
-    .mint-swipe{
-        width: 100%;
-        height: 160px;
-    }
-    .mint-swipe-item{
-        width: 100%;
-        background-color: red;
-    }
-    .mint-swipe-item img{
-        width: 100%;
-    }
-    .mui-grid-view.mui-grid-9 {
-        background-color: #fff;
+    .dong .back{
+        font-size:16px ;
+        color: rgba(1,5,4,0);
+        position: absolute;
+        top: 10px;left: 10px;
+        z-index: 10;
+
     }
 
 

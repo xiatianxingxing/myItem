@@ -11,14 +11,25 @@
         <div class="content" v-html="list.content">
 
         </div>
-
+        <comment :id="id">
+        <!--插入模板-->
+        </comment>
     </div>
 </template>
 
 <script>
     //便于后期维护
     import allApi from "../../allApi.js";
+
+    //引入模板
+    import comment from "./post.vue";
     export default{
+
+        components:{
+            //调用模板
+            comment
+        },
+
         data: function () {
             return {
                 id: 0,

@@ -3,7 +3,8 @@
 	<div class="dong">
 
 		<!-- header-->
-		<mt-header fixed title="哈哈O(∩_∩)O哈哈"></mt-header>
+		<a href="javascript:history.go(-1);" class="back">返回</a>
+		<mt-header fixed title="啦啦啦啦啦啦"></mt-header>
 
 
 		<!-- 路由占位符 -->
@@ -53,5 +54,12 @@
 
 <style scoped>
 /*当前页面的css样式写到这里，其中scoped表示这个里面写的css代码只是在当前组件页面上有效，不会去影响到其他组件页面*/
+.back{
+	font-size:16px ;
+	color: #fff;
+	position: absolute;
+	top: 10px;left: 10px;
+	z-index: 10;
 
+}
 </style>
