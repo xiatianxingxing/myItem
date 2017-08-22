@@ -35,7 +35,7 @@ import goodspinglun from "../src/home/goodslist/goodspinglun.vue";
 
 //
 import chat from "../src/chat/chat.vue";
-import contact from "../src/contact/contact.vue";
+import car from "../src/car/car.vue";
 import map from "../src/map/map.vue";
 
 
@@ -70,7 +70,7 @@ var router = new vueRouter({
 
 
 		{path:'/tabbar-with-chat',component:chat},             //消息
-		{path:'/tabbar-with-contact',component:contact},
+		{path:'/car',component:car},
 		{path:'/tabbar-with-map',component:map},               //购物车
 		]
 	});

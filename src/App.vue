@@ -3,7 +3,7 @@
 	<div class="dong">
 
 		<!-- header-->
-		<a href="javascript:history.go(-1);" class="back">返回</a>
+		<a v-if="isshow"  href="javascript:history.go(-1);" class="back">返回</a>
 		<mt-header fixed title="啦啦啦啦啦啦"></mt-header>
 
 
@@ -22,11 +22,11 @@
 				</span>
 				<span class="mui-tab-label">消息</span>
 			</router-link>
-			<router-link class="mui-tab-item" to="/tabbar-with-contact">
+			<router-link class="mui-tab-item" to="/car">
 				<span class="mui-icon mui-icon-contact">
-					<span class="mui-badge">0</span>
+					<span class="mui-badge" id="zhi">0</span>
 				</span>
-				<span class="mui-tab-label">通讯录</span>
+				<span class="mui-tab-label">购物车</span>
 			</router-link>
 			<router-link class="mui-tab-item" to="/tabbar-with-map">
 				<span class="mui-icon mui-icon-gear"></span>
@@ -38,12 +38,33 @@
 </template>
 
 <script>
+	import {val,NUM} from "./val.js";
+
+
+
+
+	val.$on(NUM, function (val) {
+		var a = document.querySelector("#zhi")
+		a.innerText = parseInt(a.innerText) + val;
+
+	})
+
+
 	// 负责导出 .vue这个组件对象(它本质上是一个Vue对象,所以Vue中该定义的元素都可以使用)
 	// function add(x,y){console.log(x+y)}	
 	// module.exports = {  //es5的导出对象的写法
 	export default{  // es6的导出对象的写法
 		data:function(){  //等价于 es5的 data:function(){
 			return{}
+		},
+		watch:{
+			'$route':function(newroute,oldroute){
+				if(newroute.path.toLowerCase() == '/home'){
+					this.isshow = false;
+				}else{
+					this.isshow = true;
+				}
+			}
 		},
 		methods:{
 		},

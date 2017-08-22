@@ -12,10 +12,17 @@
                 </li>
                 <li class="goumai">
                     购买数量：<goumai v-on:data="getnum"></goumai>
+                    <transition
+                              @before-enter="beforeEnter"
+                              @enter="Enter"
+                              @after-enter="afterEnter"
+                            >
+                        <div  v-if ="isshow" class="ball"></div>
+                    </transition>
                 </li>
                 <li>
                     <mt-button type="primary">立即购买</mt-button>
-                    <mt-button type="danger">加入购物车</mt-button>
+                    <mt-button type="danger" @click = "gouwuche">加入购物车</mt-button>
                 </li>
             </ul>
 
@@ -42,6 +49,13 @@
 
 <script>
 
+
+    import {val,NUM} from "../../val.js"
+
+
+    import {setitem,valueObj} from "../../local.js"
+
+
     import goumai from "../goumaishuliang.vue"
     //便于后期维护
     import allApi from "../../allApi.js";
@@ -60,9 +74,50 @@
                 id:0,
                 info:{},
                 num:1,//默认是一个值
+                isshow:false
             }
         },
         methods: {
+
+            //钩子函数
+            beforeEnter:function(el){
+                el.style.transform = "translate(0,0)";
+            },
+            // 表示在动画执行过程中要触发，设定三个步骤：
+            // 1、设定当前动画的每一帧刷新
+            // 2、设定当前元素的结束位置
+            // 3、手动调用动画结束的方法 done()
+            Enter:function(el,done){
+                // 1、设定当前动画的每一帧刷新
+                el.offsetWidth;
+                // 2、设定当前元素的结束位置
+                el.style.transform = "translate(30px,430px)";
+                // 3、手动调用动画结束的方法 done()
+                done();
+            },
+            // 动画结束以后，将动画元素的v-if中的变量值重置会初始值
+            afterEnter:function(el){
+                this.isshow = !this.isshow;
+            },
+
+
+
+
+//          购物车
+            gouwuche: function () {
+
+                this.isshow = !this.isshow
+
+
+                val.$emit(NUM,this.num);
+
+                //添加数据
+                valueObj.goodsid = this.id;
+                valueObj.num = this.num;
+                setitem(valueObj)
+            },
+
+
             //获取子组件传的值
             //             num 是接收值的
             getnum: function (num) {
@@ -150,12 +205,23 @@
         padding: 5px;
     }
     .btn{
-        margin: 10px;
+        margin: 10px 0;
     }
     .goumai{
         position: relative;
     }
 
+    .ball{
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: red;
+        position: absolute;
+        top: 0px;
+        left: 150px;
+        transition: all 0.5s ease;
+        z-index: 10;
+    }
 
 
 </style>
